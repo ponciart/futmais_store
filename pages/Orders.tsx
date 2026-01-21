@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useStore } from '../context/StoreContext';
-import { Order } from '../../types';
+import { Order } from '../types';
 
 const Orders = () => {
     const { orders } = useStore();
