@@ -1,0 +1,239 @@
+import { Product, Customer, Order, Supplier, FinancialTransaction } from '../types';
+
+export const INITIAL_PRODUCTS: Product[] = [
+  {
+    id: '1',
+    name: 'Camisa Brasil Home 2024',
+    description: 'Nike • Ref: BR2401',
+    price: 349.90,
+    cost: 200.00,
+    stock: 88,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYg0qzcCHeCRf6jWXFVjk4B_5oHe-um2S0v_aM-HvXtufFKxVeoCv3aC8-wMN73lVRnA2m3MvgcEaZaHnML9AqnJW60XX2GefR_n6YitdYxhfh7tvvgLRdpN9q0426NJFnNED_Ig4JUV82s7RC-tpLyPtWkKBHD2NNGsExgLjtk1tcm9RHFgdJUciT0M52UDGuQFURXtjVD1NL6cSh_xjBG52a2SQztqe7CMy8HnPoqr2m0J69GfemFZID_puCc9JlVqQyu2X4V1xD',
+    team: 'Brasil',
+    league: 'Seleções',
+    size: 'M',
+    sku: 'BRA-24-HOME',
+    status: 'IN_STOCK',
+    type: 'Jersey'
+  },
+  {
+    id: '2',
+    name: 'Flamengo Home 23/24',
+    description: 'Adidas • Ref: FLA23',
+    price: 329.90,
+    cost: 150.00,
+    stock: 124,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDKpbJ1OvEjNOzOIENULwnQ9584FykGUSHQfsam1f81vLcl-EGauGsrLw_1rXBP43ot2FV-b05Czwgw-BAjaJrxSXk9WZWciYR35z8Tr6GjHnFNfQeu8xMXPwG_Tqxqv1ht4gZ4ZD_C_q4NrC7iz3-NKIST7CpSU1R-sByp4DP7Y7cf5yrNcc-os4QEAVX2SiI3xTTv9d8hq-4-3GrsQwTOt31GdYwuwtjaj_0fOiiNcdevftm2xS3tL-a7kqTZ2WuYsoMrIbt6bHPx',
+    team: 'Flamengo',
+    league: 'Brasileirão',
+    size: 'G',
+    sku: 'FLA-23-HOME',
+    status: 'IN_STOCK',
+    type: 'Jersey'
+  },
+  {
+    id: '3',
+    name: 'Real Madrid Home',
+    description: 'Adidas • Ref: RM24',
+    price: 399.90,
+    cost: 180.00,
+    stock: 5,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAlg5e1BPTiuL7RC9Ts_wsw8DgI36uVgqaAA8qXu8x9lgQrXeVH1V-as5pn8N26zqY2HPPHhUkkXA-ApM0cveM0A_Y1zjviRkgrKGIICdQLQ-aOab1BlujTvRoKjQXA2I9dZb2oV1CRChvLiEKrkTpa3Q4AcxyfqX46c8bNbQbPHxAzxOULYhuE8WD3eKkal8bAdgtS5JGOTLEOF3r0D3Mp2vPcJF5ykssPP5gIArpbkaF5sYSRDZnHvjBpe0ay0cy8I-WiaKARxnkA',
+    team: 'Real Madrid',
+    league: 'La Liga',
+    size: 'P',
+    sku: 'RM-24-HOME',
+    status: 'LOW_STOCK',
+    type: 'Jersey'
+  },
+  {
+    id: '4',
+    name: 'Man City Home',
+    description: 'Puma • Ref: MC24',
+    price: 319.90,
+    cost: 175.00,
+    stock: 0,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAQLUlFC648zwCGw2UzGqGouXjZkDux02mFndCvji3tfozTC0W6l8JYcFPjCFcEKQY8n5v9ZSTlWVaLHyU7lA8oq4TwSEbmqm1HEMMwSENChFw0Rg1Vw6qZfp-m334BbIYi2GPSrfIvlRnILzsa1P5bn5TviV6hucvFGqbUEsWeVPxoff3hqg9_tGNXB0zOxrjLRyzKnWyVYGvSRtcUi1FtlaSGpfdDni7CRUB2SqR6YinFWAzZdv3DdYtVyRpGj5591Qj1n2Y3io9D',
+    team: 'Man City',
+    league: 'Premier League',
+    size: 'GG',
+    sku: 'MC-24-HOME',
+    status: 'OUT_OF_STOCK',
+    type: 'Jersey'
+  },
+  {
+    id: '5',
+    name: 'Bola UCL Pro',
+    description: 'Adidas • Ref: UCL24',
+    price: 799.90,
+    cost: 400.00,
+    stock: 20,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUI4NcUb2xPamrWzjvNsnSdjQWdN0i372JwLzoOJJBG5OowiQ15zPXx7ioVvJeXuCn8WnY3EdGeT2InvZl7p7VaOctMALO4A-fF4j92AX2ycbOAZjlt6Br3Iaxdi61A-nnH9UkuA-IuV2DodEvP7b5J5A584wUUO8HDzrvN17IAQhr_X86fVvofDnBqMR4ksp2dNdQN6fnYKvBr3DVTNL8MmD8oVN-VX5551D1kO-7yvKNeW-prEeG2lG6yngv93NljQlksLLIoBqh',
+    team: 'UCL',
+    league: 'Champions',
+    size: 'Unique',
+    sku: 'UCL-24-BALL',
+    status: 'IN_STOCK',
+    type: 'Ball'
+  },
+  {
+    id: '6',
+    name: 'Palmeiras Third 23/24',
+    description: 'Puma • Ref: PAL23',
+    price: 329.90,
+    cost: 140.00,
+    stock: 32,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkaKTNLMSEoKDLovq-SdoQTKdr_hObfZb7R2cWIHdJkGuwNZqEWOlq1sPOWR5aSdDYkXek0YG6ZcEf6wB5zmQ6RLLjBU_nSo1WIrrP8wJhDwkxKHxhJN-bXqDUoziUi8_wy5Igbz3WQCA6OMZDiELQFZOs8Rnkj_nilQ8WdFPJ2XoYTPiPbo-MjmK9ebe_5-KmmfTNVwfLctKJDM92rOph9zaNEs3h6YC3xBboleNepdhaNs1b0IrQqynV9NdmAeQX03GAtWecdiw7',
+    team: 'Palmeiras',
+    league: 'Brasileirão',
+    size: 'P',
+    sku: 'PAL-23-THIRD',
+    status: 'IN_STOCK',
+    type: 'Jersey'
+  },
+  {
+    id: '7',
+    name: 'Boné Brasil Nike',
+    description: 'Nike • Ref: BON01',
+    price: 129.90,
+    cost: 50.00,
+    stock: 40,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD5SHjj4dxhZg_GvuXALdZn8tO-B6y9ilezncn18w3EsZuHK9YcE0O1csHKMqDF3I6S_-BCGBQQZ2lisCiDnwbKAIniyEY25xF9-jLYEJW-64M657vU7ikWLJ0ED1xk1ss_CInTiG3v4r1yblkt-rZX--FU3p-ww9QgdX9XppPiLLdrfhhmVtFvQICAwpWIv-yeAB6m-lAh9LR_pCxtVUsb8_ifb1M_WuyFK0KGk2bMBxEdLoz6hGB6s0xHM7mWg-cIT6-r4qx255Xy',
+    team: 'Brasil',
+    league: 'Seleções',
+    size: 'U',
+    sku: 'BRA-BON-01',
+    status: 'IN_STOCK',
+    type: 'Accessory'
+  }
+];
+
+export const INITIAL_CUSTOMERS: Customer[] = [
+  {
+    id: 'c1',
+    name: 'Carlos Silva',
+    email: 'carlos.silva@exemplo.com',
+    phone: '(11) 99876-5432',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBrH0yo7Nfhk-MW2HEspAFN9h2t_rftkEu_VlpUs0y42XRH-dlvGU7Gk44FoIVLz_cjNIq0KdGoc6E1m3mBvBOGARsb0toHlk22WA5KAdFqZRZ8V-fDlPWuVjKLtMqXDnmJYyLEaBc2D2Ic_SiRiseGT7Ifk80FjwjfhGB9p_wtQWr59L4BZ7m8o6KzJ0aIPtFXHCZOPYCRtL45YjNlOvuL9TGdQb1mKYkI5K3-afBKAMpbj_dCa08RuqM6iqjWs5ECi657PrGLArqT',
+    totalSpent: 4250.00,
+    status: 'Active',
+    memberSince: 'Junho 2022',
+    address: 'São Paulo, SP'
+  },
+  {
+    id: 'c2',
+    name: 'Ana Souza',
+    email: 'ana.souza@email.com',
+    phone: '(11) 99999-9999',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBXf1pft4qPtPeV-0zESGh51gz1meBkNykm7GeZ7Sv1iZJ85rLi8asoZnuv70msuOatAREp2qihyJCJZ1tYWGobnpcriijM_J0ixaHQntQwoWdbjjSAUeHZsVvzDHoYeRRXU8Hnoi7a6u5TMkT-NF-31GvCtkvtrmCFXohwOa1r3GT6AQVZv8Z606cgH4MiDeDNdXHRwhW1PpMufECSReu_39b4yJlUuNVWJK6Zp0e91Nl55ZzDuYIX7D5w0YA3e_DplFZUqNxHIA3V',
+    totalSpent: 850.00,
+    status: 'Active',
+    memberSince: 'Março 2023',
+    address: 'Rio de Janeiro, RJ'
+  },
+  {
+    id: 'c3',
+    name: 'Julia Mendes',
+    email: 'julia.m@email.com',
+    phone: '(31) 97777-6666',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAmo4YOaT4X2MwFhZpTGtY2o43uknGkhSTBnL5w75-bIpZpCT4j4XjlsMI6aX0Z5yxXjdyckOxHrQjcXCkmo_OGjx9cYBdTR9WQRhwVGNUhnU2oPtWFYaB7BkSDc4ZvvA9ok0sF2PqHMLZPnvoEbqIjT78QwRdupW4UiMKWNGd9vhmoeTP_Kfpy7W6lWJZhfHEYv_Y9NzeWAYst-ZOY-hCBCb42tYK-9v4IX8FYb1aQuaIqgRTLJ8fnEZrXI-koSDHax4b-IRX0aIwr',
+    totalSpent: 150.00,
+    status: 'Inactive',
+    memberSince: 'Janeiro 2024',
+    address: 'Belo Horizonte, MG'
+  }
+];
+
+export const INITIAL_ORDERS: Order[] = [
+  {
+    id: '#PED-2024-89',
+    customerName: 'Carlos Silva',
+    date: '12/05/2024',
+    total: 599.90,
+    status: 'Delivered',
+    paymentMethod: 'Pix',
+    items: []
+  },
+  {
+    id: '#PED-2024-82',
+    customerName: 'Carlos Silva',
+    date: '03/04/2024',
+    total: 349.90,
+    status: 'Delivered',
+    paymentMethod: 'Credit',
+    items: []
+  },
+  {
+    id: '#PED-2024-75',
+    customerName: 'Carlos Silva',
+    date: '28/03/2024',
+    total: 289.90,
+    status: 'Cancelled',
+    paymentMethod: 'Credit',
+    items: []
+  }
+];
+
+export const INITIAL_SUPPLIERS: Supplier[] = [
+  {
+    id: 'SUP-001',
+    name: 'Elite Sports',
+    contact: 'Roberto Almeida',
+    email: 'roberto@elitesports.com',
+    phone: '11988776655',
+    category: ['Premier League', 'La Liga'],
+    rating: 5,
+    status: 'Active',
+    image: 'https://ui-avatars.com/api/?name=Elite+Sports&background=00d1ff&color=fff'
+  },
+  {
+    id: 'SUP-024',
+    name: 'Camisas Gol',
+    contact: 'Ana Souza',
+    email: 'ana.s@camisasgol.com.br',
+    phone: '21977665544',
+    category: ['Brasileirão'],
+    rating: 3,
+    status: 'Inactive',
+    image: 'https://ui-avatars.com/api/?name=Camisas+Gol&background=ffcc00&color=000'
+  }
+];
+export const INITIAL_TRANSACTIONS: FinancialTransaction[] = [
+  {
+    id: 'TR-001',
+    date: '16/10/2023',
+    description: 'Pedido #4829 - Camisa S�o Paulo 23/24',
+    category: 'Vendas',
+    type: 'Income',
+    amount: 299.90,
+    status: 'Conclu�do',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAjvdfqsRk5J9F5WHH9RUq8mFLHi1A0ax7xwlr_FBp--SgUu0AdeODSS34D3Kfm67ByLjWGd5gqRSP-PRaZDgomylpdat6-1AB-Ue4sRMOHORvgzHLV7vVRatldXAEFQTCYC1-yH2_CfkTzGHexuzL_-4R-qrTUSaHvond3RibdGkGMGTJXyOgYg9GqEmaC10LcgQJF9RMdOTdsN9BndRalVnAcssUEYUle3gvfmxg-p78n6AD0A7U-Wif6uxmScIua1_SbyIT1rB5'
+  },
+  {
+    id: 'TR-002',
+    date: '16/10/2023',
+    description: 'Nike Distribui��o Brasil LTDA',
+    category: 'Fornecedores',
+    type: 'Expense',
+    amount: 5400.00,
+    status: 'Pago'
+  },
+  {
+    id: 'TR-003',
+    date: '15/10/2023',
+    description: 'Campanha Instagram - Final Copa do Brasil',
+    category: 'Marketing',
+    type: 'Expense',
+    amount: 1200.00,
+    status: 'Pago'
+  },
+  {
+    id: 'TR-004',
+    date: '14/10/2023',
+    description: 'Venda Camisa Real Madrid',
+    category: 'Vendas',
+    type: 'Income',
+    amount: 399.90,
+    status: 'Conclu�do'
+  }
+];
